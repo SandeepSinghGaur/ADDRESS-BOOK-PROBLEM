@@ -1,57 +1,62 @@
-
 /**
  * @author Sandeep_Singh 
- * functionality print Welcome Message
+ * functionality Add More Address
  *
  */
-public class AddressBook {
-	private String city;
-	private String state;
-	private String zipcode;
-	private String email;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-	public Address(String city, String state, String zipcode, String email) {
-	this.city=city;
-	this.state=state;
-	this.email=email;
-	this.zipcode=zipcode;
+public class AddressBook 
+{
+	public static ArrayList<Person> contacts = new ArrayList<Person>();
 
+	private static void addContact() 
+	{
+		Scanner inp = new Scanner(System.in);
+                private static void addContact()
+		Address personAddress = new Address(city,state,zipCode,email);
+		Person details = new Person(firstName, lastName, phoneNum, personAddress);
+		System.out.println(details.toString());
+	}		
+		contacts.add(details);
+	}	
+	private static void display() 
+	{
+		for (Person person : contacts) {
+			System.out.println(person.toString());
+		}
 	}
 
-	public String toString() {
-		return " [city=" + city + ", state=" + state + ", zipcode=" + zipcode + ", email=" + email ;
-	}
+	public static void main(String[] args) 
+	{
+		System.out.println("Welcome to Address Book Program");
+		addContact();
+		int cond = 1;
+		while (cond == 1) 
+		{
+			System.out.println("Address Book:\n"
+					+ "1) Add Person\n"
+					+ "2) Display\n"
+					+ "0) Close");
+			Scanner inp = new Scanner(System.in);
+			System.out.println("Select an option:");
+			int num=inp.nextInt();
+			switch (num) 
+			{
+			case 1:
+				addContact();
+				break;
+			case 2:
+				display();
+				break;
+			case 0:
+				cond=0;
+				break;
+			default:
+				System.out.println("Wrong option");
+				break;
+			}
+		}
 
-	public String getCity() {
-		return city;
 	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getZipcode() {
-		return zipcode;
-	}
-
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
-
-	public String getemail() {
-		return email;
-	}
-
-	public void setemail(String email) {
-		this.email = email;
-	}
-
 }
